@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<title>Drag and Drop</title>
+
+<head>
+    <meta charset="utf-8">
+    <script src="js/angular.1_5.min.js"></script>
+    <script src="js/angular-ui-tree.min.js"></script>
+    <script src="js/myApp.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/angular-ui-tree.min.css">
+</head>
+
+<body ng-controller="BasicExampleCtrl">
+    <!-- Nested node template -->
+    <div class="row">
+        <div class="col-sm-3 well">
+            <h3>Contents</h3>
+            <div ui-tree id="tree1-root" data-clone-enabled="true" data-nodrop-enabled="true">
+                <ol ui-tree-nodes="" ng-model="tree1">
+                    <li ng-repeat="node in tree1" ui-tree-node>
+                        <div ng-if="node.type=='text'" class="tree-node tree-node-content content" ui-tree-handle>
+                            <label class="col-sm-2 control-label">{{node.type}}</label>
+                        </div>
+                        <div ng-if="node.type=='textarea'" class="tree-node tree-node-content content" ui-tree-handle>
+                            <label class="col-sm-2 control-label">{{node.type}}</label>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-2 well">
+            <h3>Forms</h3>
+            <div ui-tree id="tree2-root" data-clone-enabled="true">
+                <ol ui-tree-nodes="" ng-model="tree2">
+                    <li ng-repeat="node in tree2" ui-tree-node>
+                        <div class="tree-node" ng-if="node.type=='text'">
+                            <div class="pull-left tree-handle" ui-tree-handle>
+                              
+                            </div>
+                            <div class="tree-node-content">
+                            	<label class="col-sm-2 control-label">{{node.title}}</label>
+                                <input type={{node.type}} ng-model="abc">
+                                <a class="pull-right del" data-nodrag ng-click="remove(this)"><img src="1464375989_1-04.png"></a>
+                            </div>
+                        </div>
+                        <div class="tree-node" ng-if="node.type=='textarea'">
+                            <div class="pull-left tree-handle" ui-tree-handle>
+                               
+                            </div>
+                            <div class="tree-node-content">
+                            	 <label class="col-sm-2 control-label">{{node.title}}</label>
+                                <textarea></textarea>
+                                <a class="pull-right del" data-nodrag ng-click="remove(this)">
+                                	<img src="1464375989_1-04.png"></a>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
