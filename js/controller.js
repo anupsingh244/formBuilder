@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('myApp')
-        .controller('BasicExampleCtrl', BasicExampleCtrl);
+        .controller('formBuilderCtrl', formBuilderCtrl);
     	BasicExampleCtrl.$inject = ['$scope'];
 
-    function BasicExampleCtrl($scope) {
+    function formBuilderCtrl($scope) {
         $scope.tree1 = [{
             'id': 1,
             'title': 'Text',
